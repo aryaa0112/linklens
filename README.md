@@ -121,38 +121,3 @@ The local dashboard provides JSON endpoints:
 python -m unittest discover -s tests -v
 ```
 
-## Resume-ready summary
-
-> **LinkLens — Explainable Phishing URL Risk Screener**  
-> Built a local web app combining explainable URL heuristics and a scikit-learn
-> Random Forest, with batch CSV export and hostname-separated model evaluation.
-> Reported 0.996 holdout accuracy on the UCI PhiUSIIL dataset; documented
-> evaluation limits and presented model scores as uncalibrated signals.
-
-Only claim results you can explain in an interview; these metrics are
-dataset-specific, not a guarantee of real-world phishing detection.
-
-## Should you deploy it?
-
-**For a résumé, publish the source and include a screenshot or short demo first.
-I would not expose the current app as a public service yet.** It is configured
-for localhost only, and its interface says scans stay on the user's device.
-When hosted publicly, URLs are sent to the server instead, so that privacy
-promise would become inaccurate.
-
-Before a public deployment:
-
-1. Update the interface and privacy notice to disclose server-side processing
-   and state whether request data is logged or retained.
-2. Add production-grade request throttling, concurrency limits, and operational
-   logging/monitoring. The current standard-library development server has no
-   rate limiting or authentication.
-3. Configure the host's required bind address and port, test the built
-   artifact with the deployment's scikit-learn version, and verify resource
-   limits with the model loaded.
-4. Deploy only a demo dataset/model and avoid retaining submitted URLs.
-
-A local demo or a source repository with clear documentation is already a
-valid portfolio project; public hosting is optional. Do not describe the
-hosted version as client-side or private-by-design unless its deployment
-actually guarantees that.
