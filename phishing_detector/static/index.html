@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f3">
+  <title>LinkLens — URL safety, made clear</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="LinkLens home">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span>linklens<span class="brand-dot">.</span></span>
+    </a>
+    <div class="privacy-pill"><span class="live-dot"></span> Private by design <span class="privacy-divider">·</span> Runs on this device</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> A clearer look before you click</div>
+      <h1>Look closer.<br><span>Click smarter.</span></h1>
+      <p class="hero-copy">Check a link for common phishing clues. Get a transparent explanation, not just a scary label.</p>
+    </section>
+
+    <section class="workspace" aria-label="URL analysis">
+      <div class="tabs" role="tablist" aria-label="Scan mode">
+        <button class="tab active" id="single-tab" role="tab" aria-selected="true" aria-controls="single-panel">Single link</button>
+        <button class="tab" id="batch-tab" role="tab" aria-selected="false" aria-controls="batch-panel">Batch check <span class="new-pill">UP TO 100</span></button>
+      </div>
+
+      <div class="input-panel" id="single-panel" role="tabpanel" aria-labelledby="single-tab">
+        <label for="url-input">Paste a URL you want to inspect</label>
+        <div class="input-row">
+          <span class="input-icon" aria-hidden="true">↗</span>
+          <input id="url-input" type="text" inputmode="url" autocomplete="url" maxlength="8192" placeholder="https://example.com/sign-in" spellcheck="false">
+          <button class="scan-button" id="scan-button"><span>Scan link</span><span aria-hidden="true">→</span></button>
+        </div>
+        <div class="input-foot"><span id="input-error" class="error-message" role="alert"></span><span class="input-hint">No link is opened or sent to an external service.</span></div>
+      </div>
+
+      <div class="input-panel hidden" id="batch-panel" role="tabpanel" aria-labelledby="batch-tab" aria-hidden="true">
+        <label for="batch-input">Paste one URL per line</label>
+        <textarea id="batch-input" rows="5" maxlength="60000" placeholder="https://example.com&#10;https://another-example.org/login"></textarea>
+        <div class="batch-actions"><span class="input-hint">Up to 100 links · Invalid lines are reported individually</span><button class="scan-button" id="batch-button"><span>Check links</span><span aria-hidden="true">→</span></button></div>
+        <span id="batch-error" class="error-message" role="alert"></span>
+      </div>
+
+      <div class="result-area hidden" id="result-area" aria-live="polite"></div>
+      <div class="batch-result-area hidden" id="batch-result-area" aria-live="polite"></div>
+    </section>
+
+    <section class="how-section">
+      <div>
+        <div class="section-kicker">BUILT DIFFERENTLY</div>
+        <h2>Understand the link.<br><span>Keep your privacy.</span></h2>
+      </div>
+      <div class="value-grid">
+        <article class="value-card">
+          <span class="value-number">01</span>
+          <h3>Local-only analysis</h3>
+          <p>Your URL is examined on this computer. LinkLens never visits it or calls a reputation service.</p>
+        </article>
+        <article class="value-card">
+          <span class="value-number">02</span>
+          <h3>Evidence, not mystery</h3>
+          <p>See the specific patterns that influenced the score, and how much each contributed.</p>
+        </article>
+        <article class="value-card">
+          <span class="value-number">03</span>
+          <h3>Designed for safe habits</h3>
+          <p>Get practical next steps. A low score is never treated as proof that a site is safe.</p>
+        </article>
+      </div>
+    </section>
+
+    <aside class="disclaimer">
+      <span class="disclaimer-icon" aria-hidden="true">i</span>
+      <p><strong>A helpful signal, not a guarantee.</strong> LinkLens checks URL patterns offline. It does not inspect webpage content, redirects, certificates, or live threat-intelligence feeds. When in doubt, open the organization’s website using a trusted bookmark or type its address yourself.</p>
+    </aside>
+  </main>
+
+  <footer><span>LINKLENS</span><span>Private by design. Clear by default.</span></footer>
+</body>
+</html>
